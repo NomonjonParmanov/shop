@@ -26,7 +26,9 @@ function SecondNav() {
           </Link>
         </li>
         <li>
-          <CiShoppingCart />
+          <Link to={"/cart"}>
+            <CiShoppingCart />
+          </Link>
         </li>
       </ul>
     </div>

@@ -6,10 +6,15 @@ import mini2 from "../../assets/images/mini2.png";
 import mini3 from "../../assets/images/mini3.png";
 import mini4 from "../../assets/images/mini4.png";
 import { CiHeart } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { toggleToWishes } from "../../context/heartSlice";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Single = () => {
   let API = "https://dummyjson.com/products";
-
+  const dispatch = useDispatch();
+  let wishes = useSelector((state) => state.wishlist.value);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -68,8 +73,12 @@ const Single = () => {
             <div className="buy">
               <button className="buy">BUY NOW</button>
             </div>
-            <button>
-              <CiHeart className="heart" />
+            <button onClick={() => dispatch(toggleToWishes(product))}>
+              {wishes.some((w) => w.id == product?.id) ? (
+                <FaHeart />
+              ) : (
+                <FaRegHeart />
+              )}
             </button>
           </div>
         </div>

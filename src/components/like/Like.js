@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { UseDispatch } from "react-redux";
 import { toggleToWishes } from "../../context/heartSlice";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaRegHeart, FaHeart } from "react-icons/fa";

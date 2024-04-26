@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleToWishes } from "../../context/heartSlice";
-
+import { addToCart, cartSlice } from "../../context/cartSlice";
 let API = "https://dummyjson.com/products";
 const Products = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const Products = () => {
         <button onClick={() => dispatch(toggleToWishes(el))}>
           {wishes.some((w) => w.id == el.id) ? <FaHeart /> : <FaRegHeart />}
         </button>
-        <button>
+        <button onClick={() => dispatch(addToCart(el))}>
           <CiShoppingCart />
         </button>
       </div>
